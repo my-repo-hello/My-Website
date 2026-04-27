@@ -105,7 +105,7 @@ export default function ChatPage() {
           </div>
           <div className="flex-1 overflow-y-auto p-4 space-y-3">
             {messages.map(msg => {
-              const isMine = (msg.senderId as any)?._id === user?._id || msg.senderId === user?._id;
+              const isMine = (msg.senderId as any)?._id === user?._id || String(msg.senderId) === user?._id;
               return (<div key={msg._id} className={`flex ${isMine ? 'justify-end' : 'justify-start'}`}>
                 <div className={isMine ? 'chat-bubble-sent' : 'chat-bubble-received'}>
                   {!isMine && <p className="text-xs font-semibold mb-1" style={{ color: 'var(--accent)' }}>{(msg.senderId as any)?.displayName || 'User'}</p>}
