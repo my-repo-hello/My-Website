@@ -77,7 +77,7 @@ export default function SettingsPage() {
       <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }} className="card">
         <h3 className="font-bold mb-4" style={{ color: 'var(--text-primary)' }}>Timezone</h3>
         <select value={tz} onChange={e => setTz(e.target.value)} className="input mb-4">
-          {Intl.supportedValuesOf('timeZone').map(t => <option key={t} value={t}>{t}</option>)}
+          {['UTC','America/New_York','America/Chicago','America/Los_Angeles','Europe/London','Europe/Paris','Asia/Kolkata','Asia/Tokyo','Asia/Dubai','Asia/Singapore','Asia/Shanghai','Australia/Sydney','Pacific/Auckland'].map((t: string) => <option key={t} value={t}>{t}</option>)}
         </select>
         <button onClick={handleTzSave} className="btn-primary">Save</button>
       </motion.div>
